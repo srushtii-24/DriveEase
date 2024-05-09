@@ -1,0 +1,44 @@
+<h4>{{title}}</h4>
+<div class="container">
+  <div class="row mb-2">
+    <div class="col-sm-6">
+      <!-- <input type="text" class="form-control" placeholder="Search Brand" [(ngModel)]="brandFilterText"/>
+        <select [(ngModel)]="brandId"  class="form-select w-100">
+            <option *ngFor="let brand of brands | brandFilter:brandFilterText" [value]="brand.brandId" [selected]="getSelectedBrand(brand.brandId)">
+              {{brand.brandName}}
+            </option>
+        </select> -->
+      <h5>Search Brand</h5>
+      <p-dropdown [options]="brands" [(ngModel)]="brandId" optionLabel="brandName" [filter]="true" filterBy="brandName"
+        styleClass="'w-100'" [showClear]="true" placeholder="Select a Brand">
+      </p-dropdown>
+    </div>
+  
+    <div class="col-sm-6">
+      <!-- <input type="text" class="form-control" placeholder="Search Color" [(ngModel)]="colorFilterText" />
+      <select [(ngModel)]="colorId" class="form-select w-100">
+        <option *ngFor="let color of colors | colorFilter:colorFilterText" [value]="color.colorId"
+          [selected]="getSelectedColor(color.colorId)">
+          {{color.colorName}}
+        </option>
+      </select> -->
+      <h5>Search Color</h5>
+      <p-dropdown [options]="colors" [(ngModel)]="colorId" optionLabel="colorName" [filter]="true" filterBy="colorName"
+        styleClass="'w-100'" [showClear]="true" placeholder="Select a Color">
+      </p-dropdown>
+      <br>
+  
+    </div>
+  </div>
+  <div class="row mb-2">
+  
+    <div class="col-sm-6">
+      <a (click)="applyFilter()" class="btn btn-info w-100">Apply</a>
+    </div>
+  
+    <div class="col-sm-6">
+      <a (click)="clearFilter()" class="btn btn-warning w-100">Clear</a>
+    </div>
+  
+  </div>
+</div>

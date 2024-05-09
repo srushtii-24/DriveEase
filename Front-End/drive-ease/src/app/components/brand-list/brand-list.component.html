@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-12 mt-2 mb-2" style="text-align:right">
+
+    <button routerLink="/brands/add" class="btn btn-success" style="border-radius: 50px; width: 150px;">Add Brand</button>
+
+  </div>
+  <div class="col-md-12">
+<div class="container mt-0 pt-0">
+
+  <p-table [value]="brands" [paginator]="true" [rows]="10" [loading]="loading">
+    <ng-template pTemplate="emptymessage">
+      <tr class="text-center">
+        <td colspan="4"  class="text-center">No record found.</td>
+      </tr>
+  </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+          <th>Brand Id</th>
+          <th>Brand Name</th>
+          <th colspan="2">Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-brand let-rowIndex="rowIndex">
+        <tr>
+          <td>{{rowIndex + 1}}</td>
+          <td>{{brand.brandName}}</td>
+          <td><button routerLink="/brands/update/{{brand.brandId}}" class="btn btn-warning" style="border-radius: 50px;">Update</button></td>
+          <td><button (click)="deleteBrand(brand)" class="btn btn-danger" style="border-radius: 50px;">Delete</button></td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
+  </div>
+</div>
+
+<p-toast></p-toast>

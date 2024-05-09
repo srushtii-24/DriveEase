@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12 mt-2 mb-2" style="text-align:right">
+
+    <button routerLink="/colors/add" class="btn btn-success" style="border-radius: 50px; width: 150px;">Add Color</button>
+
+  </div>
+  <div class="col-md-12">
+    <div class="container pt-0 mt-0">
+      <p-table [value]="colors" [paginator]="true" [rows]="10" [loading]="loading">
+        <ng-template pTemplate="emptymessage">
+          <tr class="text-center">
+          <td colspan="4"  class="text-center">No record found.</td>
+        </tr>
+      </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+              <th>Color Id</th>
+              <th>Color Name</th>
+              <th></th>
+              <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-color let-rowIndex="rowIndex">
+            <tr>
+              <td>{{rowIndex+1}}</td>
+              <td>{{color.colorName}}</td>
+              <td><button routerLink="/colors/update/{{color.colorId}}" class="btn btn-warning" style="border-radius: 50px;">Update</button></td>
+              <td><button (click)="deleteColor(color)" class="btn btn-danger" style="border-radius: 50px;">Delete</button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+
+
+  </div>
+</div>
+
+<p-toast></p-toast>
